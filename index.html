@@ -52,6 +52,69 @@
         </section>
 
         <section>
+          <h2>Creating a new environment</h2>
+          <pre>
+$ conda create -n py35 python=3.5
+Fetching package metadata: ....
+Solving package specifications: .
+Package plan for installation in environment /home/mateusz/miniconda/envs/py35:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    xz-5.0.5                   |                0         504 KB
+    python-3.5.0               |                0        16.6 MB
+    setuptools-18.4            |           py35_0         345 KB
+    wheel-0.26.0               |           py35_1          77 KB
+    pip-7.1.2                  |           py35_0         1.4 MB
+    ------------------------------------------------------------
+                                           Total:        19.0 MB
+
+The following NEW packages will be INSTALLED:
+
+    openssl:    1.0.1k-1
+    pip:        7.1.2-py35_0
+    python:     3.5.0-0
+    readline:   6.2-2
+    setuptools: 18.4-py35_0
+    sqlite:     3.8.4.1-1
+    tk:         8.5.18-0
+    wheel:      0.26.0-py35_1
+    xz:         5.0.5-0
+    zlib:       1.2.8-0
+          </pre>
+        </section>
+
+        <section>
+          <pre><code class="hlsh" data-trim contenteditable>
+$ conda info
+Current conda install:
+
+             platform : linux-64
+        conda version : 3.16.0
+  conda-build version : not installed
+       python version : 2.7.10.final.0
+     requests version : 2.7.0
+     root environment : /home/mateusz/miniconda  (writable)
+  default environment : /home/mateusz/miniconda
+     envs directories : /home/mateusz/miniconda/envs
+        package cache : /home/mateusz/miniconda/pkgs
+         channel URLs : https://repo.continuum.io/pkgs/free/linux-64/
+                        https://repo.continuum.io/pkgs/free/noarch/
+                        https://repo.continuum.io/pkgs/pro/linux-64/
+                        https://repo.continuum.io/pkgs/pro/noarch/
+          config file : None
+    is foreign system : False
+            </code></pre>
+        </section>
+
+        <section>
+          <pre>
+          </pre>
+        </section>
+
+        <section>
           <h2>Hello There</h2>
           <p>
             reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
