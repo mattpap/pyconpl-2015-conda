@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
 
@@ -35,9 +34,7 @@
   </head>
 
   <body>
-
     <div class="reveal">
-
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
@@ -378,28 +375,20 @@ Reveal.addEventListener( 'customevent', function() {
             - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
           </p>
         </section>
-
       </div>
-
     </div>
 
     <script src="reveal.js/lib/js/head.min.js"></script>
     <script src="reveal.js/js/reveal.js"></script>
 
     <script>
-
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         controls: true,
         progress: true,
         slideNumber: true,
         history: true,
         center: true,
-
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-        // Optional reveal.js plugins
+        transition: 'none',
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
@@ -409,8 +398,6 @@ Reveal.addEventListener( 'customevent', function() {
           { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
-
     </script>
-
   </body>
 </html>
