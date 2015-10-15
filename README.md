@@ -1,1 +1,1 @@
-# Conda - A cross-platform package manager, PyCon.PL 2015
+http://mattpap.github.io/pyconpl-2015-conda
