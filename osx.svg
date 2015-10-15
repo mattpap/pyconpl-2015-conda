@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="265px" height="265px" viewBox="0 0 265 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>OS X El Capitan logo</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="lg">
+            <stop stop-color="#58B0E3" offset="0%"></stop>
+            <stop stop-color="#F44E28" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <circle fill="#FFFFFF" cx="132.5" cy="132.5" r="132.5"></circle>
+    <path d="M193.399414,50.9404297 L185.351562,50.9404297 L132.740234,126.974609 L132.259766,126.974609 L79.7685547,50.9404297 L71.6005859,50.9404297 L128.295898,132.740234 L71.8408203,214.05957 L79.8886719,214.05957 L132.139648,138.265625 L132.620117,138.265625 L184.871094,214.05957 L193.039062,214.05957 L136.583984,132.740234 L193.399414,50.9404297 Z" fill="url(#lg)"></path>
+</svg>
