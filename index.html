@@ -254,16 +254,36 @@ RuntimeError: Running cythonize failed!
 
         <section>
           <h3>System packaging solutions</h3>
-          Linux
-          apt-get (dpkg)
-          yum (rpm)
-          OSX
-          macports, homebrew, fink
-          Windows
-          chocolatey
-          npackd
-          Cross-platform
-          conda
+          <table>
+            <tr>
+              <td style="text-align: center"><i class="fa fa-windows fa-4x"></i><br>Windows</td>
+              <td style="text-align: center"><i class="fa fa-apple fa-4x"></i><br>Mac&nbsp;OS&nbsp;X</td>
+              <td style="text-align: center"><i class="fa fa-linux fa-4x"></i><br>Linux</td>
+            </tr>
+            <tr>
+              <td>
+                <ul style="list-style-type: none">
+                  <li>chocolatey</li>
+                  <li>npackd</li>
+                </ul>
+              </td>
+              <td>
+                <ul style="list-style-type: none">
+                  <li>macports</li>
+                  <li>homebrew</li>
+                </ul>
+              </td>
+              <td>
+                <ul style="list-style-type: none">
+                  <li>apt-get (dpkg)</li>
+                  <li>yum (rpm)</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="fragment">
+              <td colspan="3" style="text-align: center">Cross-platform: <b>conda</b></td>
+            </tr>
+          </table>
         </section>
 
         <section>
@@ -301,6 +321,7 @@ RuntimeError: Running cythonize failed!
             <li>See package history - <pre>conda list --revisions</pre></li>
             <li>Revert to a specific revision - <pre>conda install --revision 23</pre></li>
             <li>Remove unsused packages and tarballs - <pre>conda clean -pt</pre></li>
+            <li>Install anaconda manually - <pre>conda create -n my-anaconda anaconda</pre></li>
           </ul>
         </section>
 
@@ -357,12 +378,12 @@ RuntimeError: Running cythonize failed!
             <li>hard-links are very cheap and very fast</li>
             <li>conda environments are completely independent installations of everything</li>
               <ul>
-                <li>no fiddling iwht PYTHONPATH or symlinking site-packages</li>
+                <li>no fiddling with PYTHONPATH or symlinking site-packages</li>
               </ul>
-            <li>"activating" an environment jsut means chaning your PATH, so that its bin/ or Scripts/ comes first</li>
+            <li>"activating" an environment just means changing your PATH, so that its bin/ or Scripts/ comes first</li>
               <ul>
-                <li>Unix: source activate py35</li>
-                <li>Windows: activate py35</li>
+                <li>Unix: <pre>source activate py35</pre></li>
+                <li>Windows: <pre>activate py35</pre></li>
               </ul>
           </ul>
         </section>
@@ -374,7 +395,7 @@ RuntimeError: Running cythonize failed!
             <li>testing (Python 2.6, 2.7, 3.3, 3.4, 3.5, ...)</li>
             <li>development</li>
             <li>trying new package from PyPI</li>
-            <li>separating deployed apps with different dependency needs</li>
+            <li>separating deployed applications with different dependency needs</li>
             <li>trying new versions of Python</li>
             <li>reproducible science</li>
           </ul>
