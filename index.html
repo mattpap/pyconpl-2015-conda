@@ -462,6 +462,73 @@ RuntimeError: Running cythonize failed!
         </section>
 
         <section>
+          <h3>Downsides</h3>
+          <ul>
+            <li>conda uses its own build of Python (!= python.org)
+              <pre class="small">
+$ python
+Python 2.7.10 |Continuum Analytics, Inc.| (default, Sep 15 2015, 14:50:01)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+&gt;&gt;&gt;
+              </pre>
+            </li>
+            <li>developed mainly by one company</li>
+            <li>conda packages can't be used by pip</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Unfortunate features (?)</h3>
+          Conda always attempts to update installed software
+unless it was installed with explicit version (e.g. numpy=2.0)
+because people do not update their software
+and they report issues about arbitrary versions of obsolete software
+
+          <pre class="small">
+$ conda install ipython
+Fetching package metadata: ....
+Solving package specifications: ..................
+Package plan for installation in environment /home/mateusz/miniconda:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    decorator-4.0.4            |           py27_0          11 KB
+    ipython_genutils-0.1.0     |           py27_0          32 KB
+    path.py-8.1.2              |           py27_0          45 KB
+    pexpect-3.3                |           py27_0          60 KB
+    simplegeneric-0.8.1        |           py27_0           6 KB
+    conda-3.18.3               |           py27_0         175 KB
+    pickleshare-0.5            |           py27_0           8 KB
+    traitlets-4.0.0            |           py27_0          88 KB
+    ipython-4.0.0              |           py27_0         915 KB
+    ------------------------------------------------------------
+                                           Total:         1.3 MB
+
+The following NEW packages will be INSTALLED:
+
+    decorator:        4.0.4-py27_0
+    ipython:          4.0.0-py27_0
+    ipython_genutils: 0.1.0-py27_0
+    path.py:          8.1.2-py27_0
+    pexpect:          3.3-py27_0
+    pickleshare:      0.5-py27_0
+    simplegeneric:    0.8.1-py27_0
+    traitlets:        4.0.0-py27_0
+
+The following packages will be UPDATED:
+
+    conda:            3.18.2-py27_0 --&gt; 3.18.3-py27_0
+
+Proceed ([y]/n)?
+          </pre>
+        </section>
+
+        <section>
           <h3>Final words</h3>
           <ul>
             <li>conda is completely open source (BSD)</li>
