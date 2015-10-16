@@ -144,7 +144,24 @@
 
         <section>
           <h3>Presentation plan</h3>
-
+          <ul>
+            <li>about package management in general</li>
+            <li>package management in Python</li>
+              <ul>
+                <li>setup.py, pip, wheels, ...</li>
+              </ul>
+            <li>conda</li>
+              <ul>
+                <li>introduction</li>
+                <li>commands</li>
+                <li>packages</li>
+                <li>channels</li>
+                <li>environments</li>
+                <li>building packages</li>
+                <li>disadvantages</li>
+              </ul>
+            <li>final words</li>
+          </ul>
         </section>
 
         <section>
@@ -455,7 +472,7 @@ RuntimeError: Running cythonize failed!
           <ul>
             <li>you can self-host</li>
             <li>store packaes in a direcotry by platform (osx-64, linux-32, linux-64, win-32, win-64)</li>
-            <li>run conda index on that direcotyr to generate the repodata.json</li>
+            <li>run conda index on that directory to generate the repodata.json</li>
             <li>serve this up or use a file:// URL as a channel</li>
             <li>binstar is just a very convenient hosted wrapper around conda index</li>
           </ul>
