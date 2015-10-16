@@ -74,7 +74,7 @@
         </section>
 
         <section>
-          <h3>Before we begin - installing conda</h3>
+          <h3>Before we begin &mdash; installing conda</h3>
           <ul>
             <li><a href="http://conda.pydata.org/miniconda.html">Miniconda</a> (<a href="http://conda.pydata.org/docs/install/quick.html">quick</a> installation instructions)</li>
               <ul>
@@ -94,9 +94,9 @@
           <table>
             <tr>
               <td></td>
-              <td style="text-align: center"><i class="fa fa-windows fa-4x"></i><br>Windows</td>
-              <td style="text-align: center"><i class="fa fa-apple fa-4x"></i><br>Mac&nbsp;OS&nbsp;X</td>
-              <td style="text-align: center"><i class="fa fa-linux fa-4x"></i><br>Linux</td>
+              <td style="text-align: center"><i class="fa fa-windows fa-3x"></i><br>Windows</td>
+              <td style="text-align: center"><i class="fa fa-apple fa-3x"></i><br>Mac&nbsp;OS&nbsp;X</td>
+              <td style="text-align: center"><i class="fa fa-linux fa-3x"></i><br>Linux</td>
             </tr>
             <tr>
               <td>Python 2.7</td>
@@ -327,9 +327,9 @@ RuntimeError: Running cythonize failed!
           <h3>System packaging solutions</h3>
           <table>
             <tr>
-              <td style="text-align: center"><i class="fa fa-windows fa-4x"></i><br>Windows</td>
-              <td style="text-align: center"><i class="fa fa-apple fa-4x"></i><br>Mac&nbsp;OS&nbsp;X</td>
-              <td style="text-align: center"><i class="fa fa-linux fa-4x"></i><br>Linux</td>
+              <td style="text-align: center"><i class="fa fa-windows fa-3x"></i><br>Windows</td>
+              <td style="text-align: center"><i class="fa fa-apple fa-3x"></i><br>Mac&nbsp;OS&nbsp;X</td>
+              <td style="text-align: center"><i class="fa fa-linux fa-3x"></i><br>Linux</td>
             </tr>
             <tr>
               <td>
@@ -364,7 +364,7 @@ RuntimeError: Running cythonize failed!
             <li>Python, HDF5 and h5py are all conda packages</li>
             <li>cross-platform (works on Windows, OSX and Linux)</li>
             <li>doesn't require administrator privileges (sudo)</li>
-            <li>installs bineries (no more compiler woes)</li>
+            <li>installs binaries (no more compiler woes)</li>
             <li>metadata stored separately in the repository index</li>
             <li>uses a SAT solver to resolve dependencies before package are installed</li>
           </ul>
@@ -402,7 +402,7 @@ RuntimeError: Running cythonize failed!
 
         <section>
           <h3>What is a conda package?</h3>
-          a tarball (tar.bz2) with the files form a software package and some metadata
+          a tarball (.tar.bz2) with the files form a software package and some metadata
           /lib
           /include
           /bin
@@ -438,7 +438,7 @@ RuntimeError: Running cythonize failed!
           <pre>$ conda install sympy</pre>
           <ul>
             <li>the tarball is unarchived in the pkgs directory</li>
-            <li>files are hard-linked* to the install path</li>
+            <li>files are hard-linked to the install path</li>
             <li>shebang lines and other instances of a place-holder prefix are replaced with the install prefix</li>
             <li>the metadata is update, so that conda knows that a package is installed</li>
             <li>post-link script is run (these are rare)</li>
@@ -489,7 +489,7 @@ RuntimeError: Running cythonize failed!
 
         <section>
           <h3>Conda Recipes</h3>
-          <pre>conda build path/to/recipe</pre>
+          <pre>$ conda build path/to/recipe</pre>
           <ul>
             <li>meta.yaml contains metadata</li>
             <li>build.sh is the build script for Unix and bld.bat is the build script for Windows</li>
@@ -505,11 +505,11 @@ RuntimeError: Running cythonize failed!
           Lots more:
           <ul>
             <li>command line entry points</li>
-            <li>fine-grained control over conda's relocation lgic</li>
-            <li>inequalites for version of dependeices (like &gt;=1.2, &lt;2.0)</li>
+            <li>fine-grained control over conda's relocation logic</li>
+            <li>inequalities for version of dependencies (like &gt;=1.2, &lt;2.0)</li>
             <li>"Preprocessing selectors" allow using the same meta.yaml for many platforms</li>
             <li>see <a href="http://conda.pydata.org/docs/build.html"></a> for full documentation</li>
-            <li>conda build is only oa convenient wrapper</li>
+            <li>conda build is only a convenient wrapper</li>
             <li>you can also build packages manually just by following the package specification</li>
             <li>http://conda.pydata.org/docs/spec.html</li>
           </ul>
@@ -530,10 +530,10 @@ RuntimeError: Running cythonize failed!
           <pre>conda index directory/linux-64</pre>
           <ul>
             <li>you can self-host</li>
-            <li>store packaes in a direcotry by platform (osx-64, linux-32, linux-64, win-32, win-64)</li>
+            <li>store packages in a directory by platform (osx-64, linux-32, linux-64, win-32, win-64)</li>
             <li>run conda index on that directory to generate the repodata.json</li>
             <li>serve this up or use a file:// URL as a channel</li>
-            <li>binstar is just a very convenient hosted wrapper around conda index</li>
+            <li>anaconda.org is just a very convenient hosted wrapper around conda index</li>
           </ul>
         </section>
 
