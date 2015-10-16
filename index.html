@@ -548,11 +548,16 @@ Please check out: http://continuum.io/thanks and https://anaconda.org
                 <li>because people do not update their software</li>
                 <li>and then they report issues about arbitrary versions of obsolete software (maintenance nightmare)</li>
               </ul>
+            <li>conda doesn't distinguish manually and automatically (dependencies) installed packages
+              <ul>
+                <li>this is an issue when you remove a package and its dependencies are not removed as well</li>
+                <li>this is a bug in conda (see issue <a href="https://github.com/ContinuumIO/anaconda-issues/issues/232">#232</a>)</li>
+              </ul>
           </ul>
         </section>
 
         <section>
-          <h3>Unfortunate (?) feature(s) - example</h3>
+          <h3>Unfortunate (?) feature(s) - example 1</h3>
           <pre class="small">
 $ conda install ipython
 Fetching package metadata: ....
@@ -578,7 +583,7 @@ The following packages will be downloaded:
         </section>
 
         <section>
-          <h3>Unfortunate (?) feature(s) - example</h3>
+          <h3>Unfortunate (?) feature(s) - example 1</h3>
           <pre class="small">
 The following NEW packages will be INSTALLED:
 
@@ -596,6 +601,35 @@ The following packages will be UPDATED:
     conda:            3.18.2-py27_0 --&gt; 3.18.3-py27_0
 
 Proceed ([y]/n)?
+          </pre>
+        </section>
+
+        <section>
+          <h3>Unfortunate (?) feature(s) - example 2</h3>
+          <pre class="small">
+$ conda create -n ipy python
+(...)
+$ conda list -n ipy | grep -v '^#' | wc -l
+9
+$ conda install -n ipy ipython
+(...)
+$ conda list -n ipy | grep -v '^#' | wc -l
+18
+$ conda remove -n ipy ipython
+Fetching package metadata: ....
+
+Package plan for package removal in environment /home/mateusz/miniconda/envs/ipy:
+
+The following packages will be REMOVED:
+
+    ipython: 4.0.0-py27_0
+
+Proceed ([y]/n)? y
+
+Unlinking packages ...
+[      COMPLETE      ]|####################################| 100%
+$ conda list -n ipy | grep -v '^#' | wc -l
+17
           </pre>
         </section>
 
