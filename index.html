@@ -211,24 +211,6 @@
         </section>
 
         <section>
-          <h3>What's wrong with Python packaging?</h3>
-          <ul>
-            <li>binary packages</li>
-              <ul>
-                <li>install == build is not practical</li>
-                <li>eggs fell out of use with pip</li>
-                <li>now there are wheels, except on Linux</li>
-              </ul>
-            <li>non-python dependencies</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Packaging problem?</h3>
-          <img class="fragment" src="images/windows.svg" width="400" height="400" style="border: none; background-color: transparent; box-shadow: none"></img>
-        </section>
-
-        <section>
           <h3>Installing</h3>
           <ul>
             <li>setup.py install</li>
@@ -239,6 +221,19 @@
             <li>emerge</li>
             <li>homebrew</li>
             <li>...</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>What's wrong with Python packaging?</h3>
+          <ul>
+            <li>binary packages</li>
+              <ul>
+                <li>install == build is not practical</li>
+                <li>eggs fell out of use with pip</li>
+                <li>now there are wheels, except on Linux</li>
+              </ul>
+            <li>non-python dependencies</li>
           </ul>
         </section>
 
@@ -258,9 +253,8 @@ error: command 'gcc' failed with exit status 1
         <section>
           <h3>setup.py install &mdash; installing NumPy</h3>
           <pre class="small">
-$ git clone git@github.com:numpy/numpy.git
+$ git clone -b v1.10.1 git@github.com:numpy/numpy.git
 $ cd numpy
-$ git checkout v1.10.1
 $ python setup.py install
 Running from numpy source directory.
 Cythonizing sources
@@ -311,12 +305,6 @@ RuntimeError: Running cythonize failed!
         </section>
 
         <section>
-          <blockquote>
-          Package maintainers hate having packages that no one can install.
-          </blockquote>
-        </section>
-
-        <section>
           <h3>What about wheels?</h3>
           <ul>
             <li>Python package specific</li>
@@ -327,6 +315,17 @@ RuntimeError: Running cythonize failed!
             <li>still doesn't address the problem that some metadata is only in the package itself</li>
             <li>you are still a "self integrator"</li>
           </ul>
+        </section>
+
+        <section>
+          <h3>Packaging problem?</h3>
+          <img class="fragment" src="images/windows.svg" width="400" height="400" style="border: none; background-color: transparent; box-shadow: none"></img>
+        </section>
+
+        <section>
+          <blockquote>
+          Package maintainers hate having packages that no one can install.
+          </blockquote>
         </section>
 
         <section>
@@ -422,7 +421,7 @@ RuntimeError: Running cythonize failed!
 
         <section>
           <h3>Python agnostic</h3>
-          A conda package can be anything:
+          <p class="left">A conda package can be anything:</p>
           <ul>
             <li>pure Python packages</li>
             <li>Python package with C extensions</li>
@@ -431,49 +430,56 @@ RuntimeError: Running cythonize failed!
             <li>R</li>
             <li>node.js</li>
             <li>Perl</li>
+            <li>...</li>
           </ul>
         </section>
 
         <section>
           <h3>Installation</h3>
-          <pre>conda install sympy</pre>
+          <pre>$ conda install sympy</pre>
           <ul>
             <li>the tarball is unarchived in the pkgs directory</li>
             <li>files are hard-linked* to the install path</li>
             <li>shebang lines and other instances of a place-holder prefix are replaced with the install prefix</li>
-            <li>the metadata is update, so that conda kowns that it is installed</li>
+            <li>the metadata is update, so that conda knows that a package is installed</li>
             <li>post-link script is run (these are rare)</li>
           </ul>
-          And that's it.
         </section>
 
         <section>
           <h3>Environments</h3>
-          <pre>conda create -n py35 python=3.5</pre>
+          <pre>$ conda create -n py35 python=3.5</pre>
           <ul>
-            <li>environments are simple: just link the pckage to a different directory</li>
+            <li>environments are simple: just link package(s) to a different directory</li>
             <li>hard-links are very cheap and very fast</li>
             <li>conda environments are completely independent installations of everything</li>
               <ul>
-                <li>no fiddling with PYTHONPATH or symlinking site-packages</li>
+                <li>no fiddling with PYTHONPATH</li>
+                <li>no symlinking to site-packages</li>
               </ul>
-            <li>"activating" an environment just means changing your PATH, so that its bin/ or Scripts/ comes first</li>
-              <ul>
-                <li>Unix: <pre>source activate py35</pre></li>
-                <li>Windows: <pre>activate py35</pre></li>
-              </ul>
+            <li>"activating" an environment just means changing your PATH, so that environment's bin/ or Scripts/ comes first</li>
           </ul>
         </section>
 
         <section>
-          <h3>Environments</h3>
-          Uses:
+          <h3>Activating an environment</h3>
+          <table style="width: 100%">
+            <colgroup>
+              <col span="1" width="50%">
+              <col span="1" width="50%">
+            </colgroup>
+            <tr><td>Unix</td><td><pre>$ source activate py35</pre></td></tr>
+            <tr><td>Windows</td><td><pre>$ activate py35</pre></td></tr>
+          </table>
+        </section>
+
+        <section>
+          <h3>Use cases for environments</h3>
           <ul>
+            <li>trying new versions of Python</li>
+            <li>exploring new packages from PyPI</li>
             <li>testing (Python 2.6, 2.7, 3.3, 3.4, 3.5, ...)</li>
             <li>development</li>
-            <li>trying new package from PyPI</li>
-            <li>separating deployed applications with different dependency needs</li>
-            <li>trying new versions of Python</li>
             <li>reproducible science</li>
           </ul>
         </section>
