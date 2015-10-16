@@ -47,8 +47,12 @@
         width: 100%;
         height: 50px;
       }
-      .reveal pre {
+      .reveal pre.small {
         font-size: 0.45em;
+      }
+      .reveal li > pre {
+        margin: 10px auto;
+        width: 100%;
       }
       .reveal .left {
         text-align: left;
@@ -178,27 +182,30 @@
           <h3>setup.py install</h3>
           <ul>
             <li>fine if it's pure Python, not so much if it isn't</li>
-            <li>you have to have compiers installed</li>
-            <pre>
-distutils.errors.DistutilsError: Setup script existed with
+            <li>you have to have compilers installed
+              <pre>
+distutils.errors.DistutilsError: Setup script exited with
 error: command 'gcc' failed with exit status 1
-            </pre>
+              </pre>
+            </li>
           </ul>
         </section>
 
         <section>
           <h3>Example: installing NumPy</h3>
-          <pre>
-$ git clone git@github.com:numpy/numpy.git; cd numpy
+          <pre class="small">
+$ git clone git@github.com:numpy/numpy.git
+$ cd numpy
+$ git checkout v1.10.1
 $ python setup.py install
 Running from numpy source directory.
 Cythonizing sources
 Processing numpy/random/mtrand/mtrand.pyx
 Traceback (most recent call last):
-  File "<string>", line 1, in <module>
+  File "&lt;string&gt;", line 1, in &lt;module&gt;
 ImportError: No module named Cython.Compiler.Main
 Traceback (most recent call last):
-  File "/home/mateusz/repos/numpy/tools/cythonize.py", line 199, in <module>
+  File "/home/mateusz/repos/numpy/tools/cythonize.py", line 199, in &lt;module&gt;
     main()
   File "/home/mateusz/repos/numpy/tools/cythonize.py", line 195, in main
     find_process_files(root_dir)
@@ -210,7 +217,7 @@ Traceback (most recent call last):
     raise Exception('Cython failed')
 Exception: Cython failed
 Traceback (most recent call last):
-  File "setup.py", line 264, in <module>
+  File "setup.py", line 264, in &lt;module&gt;
     setup_package()
   File "setup.py", line 252, in setup_package
     generate_cython()
@@ -465,7 +472,7 @@ RuntimeError: Running cythonize failed!
 
         <section>
           <h3>Creating a new environment</h3>
-          <pre>
+          <pre class="small">
 $ conda create -n py35 python=3.5
 Fetching package metadata: ....
 Solving package specifications: .
@@ -499,7 +506,7 @@ The following NEW packages will be INSTALLED:
         </section>
 
         <section>
-          <pre>
+          <pre class="small">
 $ conda info
 Current conda install:
 
@@ -543,6 +550,18 @@ Current conda install:
           { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
+    </script>
+
+    <script type="text/javascript">
+      var elements = document.querySelectorAll('.reveal pre');
+
+      for (var i = 0, len = elements.length; i < len; i++) {
+        var element = elements[i];
+
+        if (/*element.hasAttribute('data-trim') &&*/ typeof element.innerHTML.trim === 'function') {
+          element.innerHTML = element.innerHTML.trim();
+        }
+      }
     </script>
   </body>
 </html>
