@@ -165,8 +165,20 @@
         </section>
 
         <section>
-          <h3>Why we care about package management</h3>
-
+          <h3>Why we care about package management?</h3>
+          <ul>
+            <li>user's perspective:</li>
+              <ul>
+                <li>seamlessly install software</li>
+                <li>possibly not an expert</li>
+              </ul>
+            <li>developer's perspective:</li>
+              <ul>
+                <li>allow users to use his programs</li>
+                <li>developer is a user as well</li>
+              </ul>
+          </ul>
+          <p class="fragment">We all simply don't want to waste time.</p>
         </section>
 
         <section>
@@ -176,8 +188,8 @@
             <li>automates the process of software:</li>
             <ul>
               <li>installation</li>
-              <li>upgrading</li>
               <li>configuration</li>
+              <li>upgrading</li>
               <li>removal</li>
               <li>...</li>
             </ul>
@@ -186,10 +198,10 @@
           </ul>
         </section>
 
+        <!-- examples -->
+
         <section>
-          <h3>Why we need package management</h3>
-          Installing Building
-          User Developer
+          <h2>Package management in Python</h2>
         </section>
 
         <section>
@@ -244,7 +256,7 @@ error: command 'gcc' failed with exit status 1
         </section>
 
         <section>
-          <h3>Example: installing NumPy</h3>
+          <h3>setup.py install &mdash; installing NumPy</h3>
           <pre class="small">
 $ git clone git@github.com:numpy/numpy.git
 $ cd numpy
@@ -288,19 +300,20 @@ RuntimeError: Running cythonize failed!
           <h3>pip</h3>
           <ul>
             <li>only works with Python</li>
-            <li>not so great for scientific packages that depend on native libraries</li>
+            <li>not so great for (scientific) packages that have native dependencies</li>
             <li>try installing h5py if you don't have HDF5</li>
           </ul>
         </section>
 
         <section>
-          <h3></h3>
+          <h3>pip</h3>
           You are a "self integrator"
         </section>
 
         <section>
-          <h3></h3>
-          Package maintainers hate having packages that no one can install
+          <blockquote>
+          Package maintainers hate having packages that no one can install.
+          </blockquote>
         </section>
 
         <section>
