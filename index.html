@@ -377,28 +377,32 @@ RuntimeError: Running cythonize failed!
 
         <section>
           <h3>Basic conda usage</h3>
-          <ul>
-            <li>Install a package - <pre>conda install sympy</pre></li>
-            <li>List all installed packages - <pre>conda list</pre></li>
-            <li>Search for packages - <pre>conda search numpy</pre></li>
-            <li>Create a new environment - <pre>conda create -n py35 python=3.5</pre></li>
-            <li>Remove a package - <pre>conda remove sympy</pre></li>
-            <li>Get help - <pre>conda install --help</pre></li>
-          </ul>
+          <table style="width: 100%">
+            <tr><td>Install a package</td><td><pre>conda install sympy</pre></td></tr>
+            <tr><td>List all installed packages</td><td><pre>conda list</pre></td></tr>
+            <tr><td>Search for packages</td><td><pre>conda search numpy</pre></td></tr>
+            <tr><td>Create a new environment</td><td><pre>conda create -n py3 python=3</pre></td></tr>
+            <tr><td>Remove a package</td><td><pre>conda remove sympy</pre></td></tr>
+            <tr><td>Get help</td><td><pre>conda install --help</pre></td></tr>
+          </table>
         </section>
 
         <section>
           <h3>Advanced conda usage</h3>
-          <ul>
-            <li>Insall a package in an environment - <pre>conda install -n py35 sympy</pre></li>
-            <li>Update all packages - <pre>conda update --all</pre></li>
-            <li>Export list of packages - <pre>conda list --export pkgs.txt</pre></li>
-            <li>Install packages from an export - <pre>conda install --file pkgs.txt</pre></li>
-            <li>See package history - <pre>conda list --revisions</pre></li>
-            <li>Revert to a specific revision - <pre>conda install --revision 23</pre></li>
-            <li>Remove unsused packages and tarballs - <pre>conda clean -pt</pre></li>
-            <li>Install anaconda manually - <pre>conda create -n my-anaconda anaconda</pre></li>
-          </ul>
+          <table style="width: 100%">
+            <colgroup>
+              <col span="1" width="50%">
+              <col span="1" width="50%">
+            </colgroup>
+            <tr><td>Insall to an environment</td><td><pre>conda install -n py35 sympy</pre></td></tr>
+            <tr><td>Update all packages</td><td><pre>conda update --all</pre></td></tr>
+            <tr><td>Export list of packages</td><td><pre>conda list --export pkgs.txt</pre></td></tr>
+            <tr><td>Install from an export</td><td><pre>conda install --file pkgs.txt</pre></td></tr>
+            <tr><td>See package history</td><td><pre>conda list --revisions</pre></td></tr>
+            <tr><td>Revert to a revision</td><td><pre>conda install --revision 23</pre></td></tr>
+            <tr><td>Clean installation</td><td><pre>conda clean -pt</pre></td></tr>
+            <tr><td>Install anaconda</td><td><pre>conda create -n my-an anaconda</pre></td></tr>
+          </table>
         </section>
 
         <section>
