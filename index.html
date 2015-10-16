@@ -507,16 +507,30 @@ Please check out: http://continuum.io/thanks and https://anaconda.org
             </li>
             <li>developed mainly by one company</li>
             <li>conda packages can't be used by pip</li>
+            <li>many programs and libraries don't have a conda package</li>
+            <li>environments may need manual activation outside bash/zsh
+                (see e.g. fish shell issue <a href="https://github.com/conda/conda/issues/540">#540</a>
+                and a <a href="https://gist.github.com/jiffyclub/9679788">solution</a>)
+            </li>
           </ul>
         </section>
 
         <section>
-          <h3>Unfortunate features (?)</h3>
-          Conda always attempts to update installed software
-unless it was installed with explicit version (e.g. numpy=2.0)
-because people do not update their software
-and they report issues about arbitrary versions of obsolete software
+          <h3>Unfortunate (?) feature(s)</h3>
+          <ul>
+            <li>conda always attempts to update installed software</li>
+              <ul>
+                <li><i>unless</i> it was installed with explicit version number, e.g.
+                  <pre>conda install numpy=1.8.1</pre>
+                </li>
+                <li>because people do not update their software</li>
+                <li>and then they report issues about arbitrary versions of obsolete software (maintenance nightmare)</li>
+              </ul>
+          </ul>
+        </section>
 
+        <section>
+          <h3>Unfortunate (?) feature(s) - example</h3>
           <pre class="small">
 $ conda install ipython
 Fetching package metadata: ....
@@ -538,7 +552,12 @@ The following packages will be downloaded:
     ipython-4.0.0              |           py27_0         915 KB
     ------------------------------------------------------------
                                            Total:         1.3 MB
+          </pre>
+        </section>
 
+        <section>
+          <h3>Unfortunate (?) feature(s) - example</h3>
+          <pre class="small">
 The following NEW packages will be INSTALLED:
 
     decorator:        4.0.4-py27_0
