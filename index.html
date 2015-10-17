@@ -263,15 +263,12 @@
         </section>
 
         <section>
-          <h3>What's wrong with Python packaging?</h3>
+          <h3>Why not use a system package manager?</h3>
           <ul>
-            <li>binary packages</li>
-              <ul>
-                <li>install == build is not practical</li>
-                <li>eggs fell out of use with pip</li>
-                <li>now there are wheels, except on Linux</li>
-              </ul>
-            <li>non-python dependencies</li>
+            <li>missing or (very) outdated packages</li>
+            <li>hard to get packages into certain repositories</li>
+            <li>requires duplication of packages for different distributions or operating systems</li>
+            <li>usually requires administrator privileges</li>
           </ul>
         </section>
 
@@ -389,7 +386,7 @@ error: command 'gcc' failed with exit status 1
 
         <section>
           <h3>wheel &mdash; installing h5py</h3>
-          No wheel easily available for Linux.
+          No wheel easily available for Linux (see <a href="https://pypi.python.org/pypi/h5py/2.5.0">pypi</a>).
         </section>
 
         <section>
@@ -415,40 +412,6 @@ error: command 'gcc' failed with exit status 1
             <li>uses a SAT solver to resolve dependencies</li>
             <li>allows to seamlessly manage virtual environments</li>
           </ul>
-        </section>
-
-        <section>
-          <h3>System packaging solutions</h3>
-          <table>
-            <tr>
-              <td style="text-align: center"><i class="fa fa-windows fa-3x"></i><br>Windows</td>
-              <td style="text-align: center"><i class="fa fa-apple fa-3x"></i><br>Mac&nbsp;OS&nbsp;X</td>
-              <td style="text-align: center"><i class="fa fa-linux fa-3x"></i><br>Linux</td>
-            </tr>
-            <tr>
-              <td>
-                <ul style="list-style-type: none">
-                  <li>chocolatey</li>
-                  <li>npackd</li>
-                </ul>
-              </td>
-              <td>
-                <ul style="list-style-type: none">
-                  <li>macports</li>
-                  <li>homebrew</li>
-                </ul>
-              </td>
-              <td>
-                <ul style="list-style-type: none">
-                  <li>apt-get (dpkg)</li>
-                  <li>yum (rpm)</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="fragment">
-              <td colspan="3" style="text-align: center">Cross-platform: <b>conda</b></td>
-            </tr>
-          </table>
         </section>
 
         <section>
@@ -534,6 +497,66 @@ error: command 'gcc' failed with exit status 1
         </section>
 
         <section>
+          <h3>Installation &mdash; conda install sympy</h3>
+          <pre class="small">
+$ conda install sympy
+Fetching package metadata: ....
+Solving package specifications: ...................
+Package plan for installation in environment /home/mateusz/miniconda:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    fastcache-1.0.2            |           py27_0          40 KB
+    sympy-0.7.6.1              |           py27_0         6.2 MB
+    ------------------------------------------------------------
+                                           Total:         6.2 MB
+
+The following NEW packages will be INSTALLED:
+
+    fastcache: 1.0.2-py27_0
+    sympy:     0.7.6.1-py27_0
+
+Proceed ([y]/n)? y
+
+Fetching packages ...
+fastcache-1.0. 100% |######################| Time: 0:00:00 164.82 kB/s
+sympy-0.7.6.1- 100% |######################| Time: 0:00:20 314.02 kB/s
+Extracting packages ...
+[      COMPLETE      ]|#####################| 100%
+Linking packages ...
+[      COMPLETE      ]|#####################| 100%
+</pre>
+        </section>
+
+        <!--
+        <section>
+          <h3></h3>
+          <pre class="small">
+$ conda info
+Current conda install:
+
+             platform : linux-64
+        conda version : 3.16.0
+  conda-build version : not installed
+       python version : 2.7.10.final.0
+     requests version : 2.7.0
+     root environment : /home/mateusz/miniconda  (writable)
+  default environment : /home/mateusz/miniconda
+     envs directories : /home/mateusz/miniconda/envs
+        package cache : /home/mateusz/miniconda/pkgs
+         channel URLs : https://repo.continuum.io/pkgs/free/linux-64/
+                        https://repo.continuum.io/pkgs/free/noarch/
+                        https://repo.continuum.io/pkgs/pro/linux-64/
+                        https://repo.continuum.io/pkgs/pro/noarch/
+          config file : None
+    is foreign system : False
+            </pre>
+        </section>
+        -->
+
+        <section>
           <h3>Environments</h3>
           <pre>$ conda create -n py35 python=3.5</pre>
           <ul>
@@ -572,189 +595,6 @@ error: command 'gcc' failed with exit status 1
         </section>
 
         <section>
-          <h3>Building</h3>
-        </section>
-
-        <section>
-          <h3>Conda Recipes</h3>
-          <pre>$ conda build path/to/recipe</pre>
-          <ul>
-            <li>meta.yaml contains metadata</li>
-            <li>build.sh is the build script for Unix and bld.bat is the build script for Windows</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Example meta.yaml</h3>
-        </section>
-
-        <section>
-          <h3></h3>
-          Lots more:
-          <ul>
-            <li>command line entry points</li>
-            <li>fine-grained control over conda's relocation logic</li>
-            <li>inequalities for version of dependencies (like &gt;=1.2, &lt;2.0)</li>
-            <li>"Preprocessing selectors" allow using the same meta.yaml for many platforms</li>
-            <li>see <a href="http://conda.pydata.org/docs/build.html"></a> for full documentation</li>
-            <li>conda build is only a convenient wrapper</li>
-            <li>you can also build packages manually just by following the package specification</li>
-            <li>http://conda.pydata.org/docs/spec.html</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Sharing</h3>
-        </section>
-
-        <section data-background="images/an.png">
-        </section>
-
-        <section data-background="images/an-bokeh.png">
-        </section>
-
-        <section>
-          <h3>Self hosting</h3>
-          <pre>conda index directory/linux-64</pre>
-          <ul>
-            <li>you can self-host</li>
-            <li>store packages in a directory by platform (osx-64, linux-32, linux-64, win-32, win-64)</li>
-            <li>run conda index on that directory to generate the repodata.json</li>
-            <li>serve this up or use a file:// URL as a channel</li>
-            <li>anaconda.org is just a very convenient hosted wrapper around conda index</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Downsides</h3>
-          <ul>
-            <li>conda uses its own build of Python (!= python.org)
-              <pre class="small">
-$ python
-Python 2.7.10 |Continuum Analytics, Inc.| (default, Sep 15 2015, 14:50:01)
-[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
-Anaconda is brought to you by Continuum Analytics.
-Please check out: http://continuum.io/thanks and https://anaconda.org
-&gt;&gt;&gt;
-              </pre>
-            </li>
-            <li>developed mainly by one company</li>
-            <li>conda packages can't be used by pip</li>
-            <li>many programs and libraries don't have a conda package</li>
-            <li>environments may need manual activation outside bash/zsh
-                (see e.g. fish shell issue <a href="https://github.com/conda/conda/issues/540">#540</a>
-                and a <a href="https://gist.github.com/jiffyclub/9679788">solution</a>)
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Unfortunate (?) feature(s)</h3>
-          <ul>
-            <li>conda always attempts to update installed software</li>
-              <ul>
-                <li><i>unless</i> it was installed with explicit version number, e.g.
-                  <pre>conda install numpy=1.8.1</pre>
-                </li>
-                <li>because people do not update their software</li>
-                <li>and then they report issues about arbitrary versions of obsolete software (maintenance nightmare)</li>
-              </ul>
-            <li>conda doesn't distinguish between manually and automatically (dependencies) installed packages
-              <ul>
-                <li>this is an issue when you remove a package and its dependencies are not removed as well</li>
-                <li>this is a bug in conda (see issue <a href="https://github.com/ContinuumIO/anaconda-issues/issues/232">#232</a>)</li>
-              </ul>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Unfortunate (?) feature(s) - example 1</h3>
-          <pre class="small">
-$ conda install ipython
-Fetching package metadata: ....
-Solving package specifications: ..................
-Package plan for installation in environment /home/mateusz/miniconda:
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    decorator-4.0.4            |           py27_0          11 KB
-    ipython_genutils-0.1.0     |           py27_0          32 KB
-    path.py-8.1.2              |           py27_0          45 KB
-    pexpect-3.3                |           py27_0          60 KB
-    simplegeneric-0.8.1        |           py27_0           6 KB
-    conda-3.18.3               |           py27_0         175 KB
-    pickleshare-0.5            |           py27_0           8 KB
-    traitlets-4.0.0            |           py27_0          88 KB
-    ipython-4.0.0              |           py27_0         915 KB
-    ------------------------------------------------------------
-                                           Total:         1.3 MB
-          </pre>
-        </section>
-
-        <section>
-          <h3>Unfortunate (?) feature(s) - example 1</h3>
-          <pre class="small">
-The following NEW packages will be INSTALLED:
-
-    decorator:        4.0.4-py27_0
-    ipython:          4.0.0-py27_0
-    ipython_genutils: 0.1.0-py27_0
-    path.py:          8.1.2-py27_0
-    pexpect:          3.3-py27_0
-    pickleshare:      0.5-py27_0
-    simplegeneric:    0.8.1-py27_0
-    traitlets:        4.0.0-py27_0
-
-The following packages will be UPDATED:
-
-    conda:            3.18.2-py27_0 --&gt; 3.18.3-py27_0
-
-Proceed ([y]/n)?
-          </pre>
-        </section>
-
-        <section>
-          <h3>Unfortunate (?) feature(s) - example 2</h3>
-          <pre class="small">
-$ conda create -n ipy python
-(...)
-$ conda list -n ipy | grep -v '^#' | wc -l
-9
-$ conda install -n ipy ipython
-(...)
-$ conda list -n ipy | grep -v '^#' | wc -l
-18
-$ conda remove -n ipy ipython
-Fetching package metadata: ....
-
-Package plan for package removal in environment /home/mateusz/miniconda/envs/ipy:
-
-The following packages will be REMOVED:
-
-    ipython: 4.0.0-py27_0
-
-Proceed ([y]/n)? y
-
-Unlinking packages ...
-[      COMPLETE      ]|####################################| 100%
-$ conda list -n ipy | grep -v '^#' | wc -l
-17
-          </pre>
-        </section>
-
-        <section>
-          <h3>Final words</h3>
-          <ul>
-            <li>conda is completely open source (BSD)</li>
-            <li><a href="https://github.com/conda/conda">https://github.com/conda/conda</a></li>
-            <li>mailing list: <a href="mailto:conda@continuum.io">conda@continuum.io</a></li>
-          </ul>
-        </section>
-
-        <section>
           <h3>Creating a new environment</h3>
           <pre class="small">
 $ conda create -n py35 python=3.5
@@ -786,31 +626,247 @@ The following NEW packages will be INSTALLED:
     wheel:      0.26.0-py35_1
     xz:         5.0.5-0
     zlib:       1.2.8-0
+
+Proceed ([y]/n)? y
           </pre>
         </section>
 
         <section>
+          <h3>Creating a new environment</h3>
           <pre class="small">
-$ conda info
-Current conda install:
+Fetching packages ...
+xz-5.0.5-0.tar 100% |#######################| Time: 0:00:01 488.65 kB/s
+python-3.5.0-0 100% |#######################| Time: 0:00:19 889.30 kB/s
+setuptools-18. 100% |#######################| Time: 0:00:00 546.22 kB/s
+wheel-0.26.0-p 100% |#######################| Time: 0:00:00 200.20 kB/s
+pip-7.1.2-py35 100% |#######################| Time: 0:00:11 127.70 kB/s
+Extracting packages ...
+[      COMPLETE      ]|######################| 100%
+Linking packages ...
+[      COMPLETE      ]|######################| 100%
+#
+# To activate this environment, use:
+# $ source activate py35
+#
+# To deactivate this environment, use:
+# $ source deactivate
+#
 
-             platform : linux-64
-        conda version : 3.16.0
-  conda-build version : not installed
-       python version : 2.7.10.final.0
-     requests version : 2.7.0
-     root environment : /home/mateusz/miniconda  (writable)
-  default environment : /home/mateusz/miniconda
-     envs directories : /home/mateusz/miniconda/envs
-        package cache : /home/mateusz/miniconda/pkgs
-         channel URLs : https://repo.continuum.io/pkgs/free/linux-64/
-                        https://repo.continuum.io/pkgs/free/noarch/
-                        https://repo.continuum.io/pkgs/pro/linux-64/
-                        https://repo.continuum.io/pkgs/pro/noarch/
-          config file : None
-    is foreign system : False
-            </pre>
+$ source activate py35
+discarding /home/mateusz/miniconda/bin from PATH
+prepending /home/mateusz/miniconda/envs/py35/bin to PATH
+
+$ python --version
+Python 3.5.0 :: Continuum Analytics, Inc.
+
+$ source deactivate
+discarding /home/mateusz/miniconda/envs/py35/bin from PATH
+
+$ python --version
+Python 2.7.10 :: Continuum Analytics, Inc.
+          </pre>
         </section>
+
+        <section>
+          <h3>Channels</h3>
+          <pre>$ conda install -c https://conda.anaconda.org/travis simpy</pre>
+          <ul>
+            <li>simply URLs to locations with conda packages</li>
+            <li>allow to explore <a href="https://anaconda.org">anaconda.org</a>
+              <pre>$ conda install -c travis simpy</pre>
+            </li>
+            <li>configure channels in .condarc
+              <pre>$ conda config --add channels travis</pre>
+            </li>
+            <li>use conda info inspect the configuration
+              <pre>$ conda info</pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Building</h3>
+        </section>
+
+        <section>
+          <h3>Conda Recipes</h3>
+          <pre>$ conda build path/to/recipe</pre>
+          <ul>
+            <li>meta.yaml contains metadata</li>
+            <li>build.sh is the build script for Unix and bld.bat is the build script for Windows</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Example meta.yaml</h3>
+        </section>
+
+        <section>
+          <h3>Lots more</h3>
+          <ul>
+            <li>command line entry points</li>
+            <li>fine-grained control over conda's relocation logic</li>
+            <li>inequalities for version of dependencies (like &gt;=1.2, &lt;2.0)</li>
+            <li>"Preprocessing selectors" allow using the same meta.yaml for many platforms</li>
+            <li>see <a href="http://conda.pydata.org/docs/build.html">full</a> documentation</li>
+            <li>conda build is only a convenient wrapper</li>
+            <li>you can also build packages manually just by following the <a href="http://conda.pydata.org/docs/spec.html">package specification</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Sharing</h3>
+
+          <ul>
+            <li>Anaconda Cloud (<a href="https://anaconda.org">anaconda.org</a>)</li>
+              <ul>
+                <li>something like GitHub, but for package maintainers</li>
+                <li>public and private packages</li>
+                <li>build automation</li>
+              </ul>
+            <li>self-hosting with conda index</li>
+              <ul>
+                <li>anaconda.org is a convenient wrapper</li>
+              </ul>
+          </ul>
+        </section>
+
+        <section data-background="images/an.png">
+        </section>
+
+        <section data-background="images/an-bokeh.png">
+        </section>
+
+        <section>
+          <h3>Downsides</h3>
+          <ul>
+            <li>conda uses its own build of Python (!= python.org)
+              <pre class="small">
+$ python
+Python 2.7.10 |Continuum Analytics, Inc.| (default, Sep 15 2015, 14:50:01)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+&gt;&gt;&gt;
+              </pre>
+            </li>
+            <li>developed mainly by one company</li>
+            <li>conda packages can't be used by pip</li>
+            <li>many programs and libraries don't have a conda package</li>
+            <li>environments may need manual activation outside bash/zsh
+                (see e.g. fish shell issue <a href="https://github.com/conda/conda/issues/540">#540</a>
+                and a <a href="https://gist.github.com/jiffyclub/9679788">solution</a>)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Unfortunate (?) features</h3>
+          <ul>
+            <li>conda always attempts to update installed software</li>
+              <ul>
+                <li><i>unless</i> it was installed with explicit version number, e.g.
+                  <pre>conda install numpy=1.8.1</pre>
+                </li>
+                <li>because people do not update their software</li>
+                <li>and then they report issues about arbitrary versions of obsolete software (maintenance nightmare)</li>
+              </ul>
+            <li>conda doesn't distinguish between manually and automatically (dependencies) installed packages
+              <ul>
+                <li>this is an issue when you remove a package and its dependencies are not removed as well</li>
+                <li>this is a bug in conda (see issue <a href="https://github.com/ContinuumIO/anaconda-issues/issues/232">#232</a>)</li>
+              </ul>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Unfortunate (?) features - example 1</h3>
+          <pre class="small">
+$ conda install ipython
+Fetching package metadata: ....
+Solving package specifications: ..................
+Package plan for installation in environment /home/mateusz/miniconda:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    decorator-4.0.4            |           py27_0          11 KB
+    ipython_genutils-0.1.0     |           py27_0          32 KB
+    path.py-8.1.2              |           py27_0          45 KB
+    pexpect-3.3                |           py27_0          60 KB
+    simplegeneric-0.8.1        |           py27_0           6 KB
+    conda-3.18.3               |           py27_0         175 KB
+    pickleshare-0.5            |           py27_0           8 KB
+    traitlets-4.0.0            |           py27_0          88 KB
+    ipython-4.0.0              |           py27_0         915 KB
+    ------------------------------------------------------------
+                                           Total:         1.3 MB
+          </pre>
+        </section>
+
+        <section>
+          <h3>Unfortunate (?) features - example 1</h3>
+          <pre class="small">
+The following NEW packages will be INSTALLED:
+
+    decorator:        4.0.4-py27_0
+    ipython:          4.0.0-py27_0
+    ipython_genutils: 0.1.0-py27_0
+    path.py:          8.1.2-py27_0
+    pexpect:          3.3-py27_0
+    pickleshare:      0.5-py27_0
+    simplegeneric:    0.8.1-py27_0
+    traitlets:        4.0.0-py27_0
+
+The following packages will be UPDATED:
+
+    conda:            3.18.2-py27_0 --&gt; 3.18.3-py27_0
+
+Proceed ([y]/n)?
+          </pre>
+        </section>
+
+        <section>
+          <h3>Unfortunate (?) features - example 2</h3>
+          <pre class="small">
+$ conda create -n ipy python
+(...)
+$ conda list -n ipy | grep -v '^#' | wc -l
+9
+$ conda install -n ipy ipython
+(...)
+$ conda list -n ipy | grep -v '^#' | wc -l
+18
+$ conda remove -n ipy ipython
+Fetching package metadata: ....
+
+Package plan for package removal in environment /home/mateusz/miniconda/envs/ipy:
+
+The following packages will be REMOVED:
+
+    ipython: 4.0.0-py27_0
+
+Proceed ([y]/n)? y
+
+Unlinking packages ...
+[      COMPLETE      ]|####################################| 100%
+$ conda list -n ipy | grep -v '^#' | wc -l
+17
+          </pre>
+        </section>
+
+        <section>
+          <h3>Final words</h3>
+          <ul>
+            <li>conda is completely open source (BSD)</li>
+            <li><a href="http://conda.pydata.org/docs/get-started.html">http://conda.pydata.org/docs/get-started.html</a></li>
+            <li><a href="https://github.com/conda/conda">https://github.com/conda/conda</a></li>
+            <li>mailing list: <a href="mailto:conda@continuum.io">conda@continuum.io</a></li>
+          </ul>
+        </section>
+
       </div>
     </div>
 
